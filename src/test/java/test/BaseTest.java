@@ -1,6 +1,5 @@
 package test;
 
-import Screens.LoginPage;
 import drivers.DriverSetUp;
 import helpers.RetryRule;
 import helpers.TestWatchers;
@@ -10,6 +9,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.openqa.selenium.WebDriverException;
+import screens.ConfirmDialog;
+import screens.LoginPage;
 
 import static drivers.AppiumServer.closeAppiumServer;
 import static drivers.AppiumServer.startAppiumServer;
@@ -39,10 +40,12 @@ public class BaseTest {
     public RetryRule retryRule = new RetryRule(WebDriverException.class, AssertionError.class);
 
     protected LoginPage loginPage;
+    protected ConfirmDialog confirmDialog;
 
     public BaseTest() {
 
         loginPage = new LoginPage();
+        confirmDialog = new ConfirmDialog();
     }
 
     // Actions before test class
