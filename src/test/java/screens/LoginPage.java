@@ -29,7 +29,7 @@ public class LoginPage extends BasePage {
 
     @Step("Type phone {phone}")
     public LoginPage typePhoneNumber(String phone) {
-        type(phoneEditField, "123", "Phone edit field", TAG);
+        type(phoneEditField, phone, "Phone edit field", TAG);
         return this;
     }
 
