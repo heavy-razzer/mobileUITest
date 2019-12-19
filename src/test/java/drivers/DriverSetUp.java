@@ -2,7 +2,6 @@ package drivers;
 
 import io.appium.java_client.AppiumDriver;
 import objects.Environment;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import test.BaseTest;
 import utils.OsUtils;
 
@@ -13,8 +12,6 @@ import static utils.Log.sysLog;
 Functions to create local or cloud driver and terminate it
  */
 public class DriverSetUp {
-
-    public static WebDriverWait wait;
 
     public static AppiumDriver initDriver() {
 
@@ -27,10 +24,6 @@ public class DriverSetUp {
 
         if (environment.equals(Environment.browserStack)) {
             drv = CreateDrv.createBSDriver();
-        }
-
-        if (drv != null) {
-            wait = new WebDriverWait(drv, 10);
         }
         return drv;
     }
