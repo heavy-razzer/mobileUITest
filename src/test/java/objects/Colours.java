@@ -1,8 +1,11 @@
 package objects;
 
+import lombok.Getter;
+
 /*
 Colours used for highlightning test on log
  */
+@Getter
 public enum Colours {
     DEFAULT("\u001B[0m"),
     RED("\u001B[31m"),
