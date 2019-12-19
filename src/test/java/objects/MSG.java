@@ -14,7 +14,7 @@ public enum MSG {
     CREATING_LOCAL_DRV("Creating Local driver..."),
     LOCAL_DRV_CREATED("Local driver is created"),
     ERR_CREATING_LOCAL_DRV("Cannot create local WebDriver!"),
-    DEVICE_NOT_SET_SETTING_UP_DT_CONN("Device not set: Setting up Desktop connection..."),
+    DEVICE_NOT_SET("Device not set"),
     DT_NOT_DEFINED_USE_DEFAULT("Desktop not defined: Using default Desktop parameters: Win10/Chrome"),
     BS_STARTING_DRV("Creating BrowserStack driver..."),
     BS_DRV_CREATED("BrowserStack driver is created"),
