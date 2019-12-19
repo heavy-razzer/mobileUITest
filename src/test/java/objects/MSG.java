@@ -60,7 +60,7 @@ public enum MSG {
     WARN_LOCAL_SERVER_NOT_STARTED("LocalTesting server not started. Internal resources can be not available"),
 
     // Element operations
-    ERR_CLICK_INTERRUPTED("Click on element was interrupted"),
+    ERR_CLICK_FAILED("Click on element was failed"),
     ERR_CANT_DISMISS_ALERT("Cant dismiss alert: No alert present!"),
     ERR_CANT_ACCEPT_ALERT("Cant accept alert: No alert present!"),
     ERR_FAIL_TO_SCROLL("Fail to scroll menu to selected item!"),
