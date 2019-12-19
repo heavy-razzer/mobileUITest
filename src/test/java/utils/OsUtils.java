@@ -1,13 +1,20 @@
 package utils;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import objects.Device;
 import objects.Environment;
 import objects.MSG;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static test.BaseTest.driver;
 import static utils.Log.sysLog;
 
 /*
@@ -81,5 +88,29 @@ public class OsUtils {
         DateFormat dateFormat = new SimpleDateFormat(format);
         Date newDate = new Date();
         return dateFormat.format(newDate);
+    }
+
+    public static String getSMSCode() {
+
+        String result;
+        // Open notification panel
+        AndroidDriver androidDriver = ((AndroidDriver) driver);
+        androidDriver.openNotifications();
+
+        // Set wait period longer
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+
+        // Locator for message text
+        By by = By.id("android:id/message_text");
+        try {
+            // Wait until message tile appears on Notification panel
+            wait.until(webDriver -> driver.findElements(by).size() > 0);
+            result = driver.findElement(by).getText().split(":")[1].trim();
+        } catch (TimeoutException | NoSuchElementException ex) {
+            result = null;
+        }
+        // Close Notification panel
+        androidDriver.pressKeyCode(AndroidKeyCode.BACK);
+        return result;
     }
 }
