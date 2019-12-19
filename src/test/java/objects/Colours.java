@@ -1,5 +1,8 @@
 package objects;
 
+/*
+Colours used for highlightning test on log
+ */
 public enum Colours {
     DEFAULT("\u001B[0m"),
     RED("\u001B[31m"),

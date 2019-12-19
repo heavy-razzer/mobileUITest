@@ -7,6 +7,9 @@ import static objects.devices.DeviceNames.iphone8plus;
 import static objects.devices.DeviceNames.pixel3xl;
 import static objects.devices.DeviceVersions.*;
 
+/*
+Device management: create device, set parameters...
+ */
 @Getter
 public class Device {
 

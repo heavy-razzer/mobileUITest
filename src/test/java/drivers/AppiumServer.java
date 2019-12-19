@@ -9,6 +9,9 @@ import static drivers.DriverSleep.sleep;
 import static utils.Log.sysLog;
 import static utils.OsUtils.*;
 
+/*
+Commands to launch and stop Appium server on defined port
+ */
 public class AppiumServer {
 
     public static Process startAppiumServer(int serverPort) {

@@ -10,6 +10,9 @@ import java.util.Date;
 
 import static utils.Log.sysLog;
 
+/*
+Various functions to work with environment properties and command line keys
+ */
 public class OsUtils {
 
     private static String OS = null;

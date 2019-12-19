@@ -4,6 +4,9 @@ import ru.yandex.qatools.properties.PropertyLoader;
 import ru.yandex.qatools.properties.annotations.Property;
 import ru.yandex.qatools.properties.annotations.Resource;
 
+/*
+Allure properties template
+ */
 @Resource.Classpath("environment.properties")
 public class EnvironmentProperties {
 
@@ -20,12 +23,6 @@ public class EnvironmentProperties {
     @Property("BSserver")
     private String BSserver;
 
-    @Property("SLuserName")
-    private String SLpropUserName;
-
-    @Property("SLuserPsw")
-    private String SLpropUserPsw;
-
     public String getBrowserStackUserName() {
         return BSpropUserName;
     }
@@ -36,13 +33,5 @@ public class EnvironmentProperties {
 
     public String getBSserver() {
         return BSserver;
-    }
-
-    public String getSauceLabsUserName() {
-        return SLpropUserName;
-    }
-
-    public String getSauceLabsUserPsw() {
-        return SLpropUserPsw;
     }
 }

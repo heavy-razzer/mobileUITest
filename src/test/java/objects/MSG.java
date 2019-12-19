@@ -1,5 +1,8 @@
 package objects;
 
+/*
+Messages list for log output
+ */
 public enum MSG {
 
     // Environment names

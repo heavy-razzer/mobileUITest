@@ -1,5 +1,9 @@
 package objects.devices;
 
+/*
+Device names.
+Used for BrowserStack
+ */
 public class DeviceNames {
 
     public static String pixel3xl = "Google Pixel 3 XL";

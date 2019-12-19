@@ -10,6 +10,9 @@ import utils.Log;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+JUnit rule for relaunching test if it was failed by defined list of reasons
+ */
 public class RetryRule implements TestRule {
 
     private List<Class> exceptionClasses;

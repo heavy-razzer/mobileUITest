@@ -15,13 +15,16 @@ import static drivers.AppiumServer.startAppiumServer;
 import static objects.Environment.browserStack;
 import static utils.OsUtils.getRunType;
 
+/*
+Basic test setup: driver and pages management
+ */
 public class BaseTest {
 
     // Set main driver
     public static AppiumDriver driver = null;
 
     // System process with appium server
-    public static Process appium_Process;
+    private static Process appium_Process;
 
     // How many times should we rerun failed test. 0 - never, 1 - try once after test failed
     public static int retryCount;

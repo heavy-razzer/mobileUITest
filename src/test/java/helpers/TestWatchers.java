@@ -8,10 +8,12 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import test.BaseTest;
-import utils.OsUtils;
 
 import static utils.Log.print;
 
+/*
+Custom actions, applied after test was executed
+ */
 public class TestWatchers extends TestWatcher {
 
     private WebDriver driver;
@@ -23,9 +25,7 @@ public class TestWatchers extends TestWatcher {
     // Actions after test was failed
     @Override
     protected void failed(Throwable e, Description description) {
-        if (!OsUtils.getDevice().notEmpty()) {
-            makeScreenshotOnFailure();
-        }
+        makeScreenshotOnFailure();
         print("     TEST FAILED", Colours.RED);
     }
 
@@ -43,7 +43,7 @@ public class TestWatchers extends TestWatcher {
 
     // Get screenshot of opened web-page as Byte array
     @Attachment(value = "Screenshot on failure", type = "image/png", fileExtension = "png")
-    private byte[] makeScreenshotOnFailure() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    private void makeScreenshotOnFailure() {
+        ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

@@ -1,5 +1,8 @@
 package objects.devices;
 
+/*
+Device OS versions list
+ */
 public class DeviceVersions {
 
     public static String android90 = "9.0";

@@ -16,14 +16,20 @@ import static objects.MSG.*;
 import static utils.Log.errLog;
 import static utils.Log.sysLog;
 
-public class CreateDrv {
+/*
+Functions to create Appium drivers
+ */
+class CreateDrv {
 
-    public static AppiumDriver createLocalDriver() {
+    // Create Appium driver on local machine
+    static AppiumDriver createLocalDriver() {
 
         AppiumDriver localDriver = null;
 
+        //. Get device parameters
         Device device = OsUtils.getDevice();
 
+        // Set driver capabilies
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, device.getOSname());
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
@@ -36,8 +42,10 @@ public class CreateDrv {
         } else { // for iOS device
             caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, device.getOSVersion() + ".1");
         }
+
         caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "10");
 
+        // Try to create driver
         try {
             sysLog(CREATING_LOCAL_DRV);
             String baseURL = "http://0.0.0.0:";
@@ -53,32 +61,37 @@ public class CreateDrv {
         return localDriver;
     }
 
-    public static AppiumDriver createBSDriver() {
+    // Create remote driver on BrowserStack cloud paltform
+    static AppiumDriver createBSDriver() {
 
         String USERNAME;
         String AUTOMATE_KEY;
         String SERVER;
 
+        // Get credentials from Allure properties
         EnvironmentProperties environmentProperties = new EnvironmentProperties();
         USERNAME = environmentProperties.getBrowserStackUserName();
         AUTOMATE_KEY = environmentProperties.getBrowserStackUserPsw();
         SERVER = environmentProperties.getBSserver();
+
+        // Set URL to BS platform
         String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@" + SERVER;
 
         AppiumDriver cloudDriver = null;
+
+        // Set driver capabilites
         DesiredCapabilities caps = new DesiredCapabilities();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         caps.setCapability(ChromeOptions.CAPABILITY, options);
-
         Device device = OsUtils.getDevice();
-
         caps.setCapability("os_version", device.getOSVersion());
         caps.setCapability("device", device.getDeviceName());
         caps.setCapability("real_mobile", "true");
         caps.setCapability("browserstack.debug", "true"); // Allow taking screenshots
         caps.setCapability("name", device.getOSname());
 
+        // Try to create driver connected to BS platform
         try {
             sysLog(BS_STARTING_DRV);
             cloudDriver = new AppiumDriver(new URL(URL), caps);

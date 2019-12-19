@@ -9,6 +9,9 @@ import static objects.MSG.ERR_SLEEP_FAILED;
 import static utils.Log.log;
 import static utils.OsUtils.timeStamp;
 
+/*
+Safe pause while test execution
+ */
 public class DriverSleep {
 
     public static void sleep(int time) {

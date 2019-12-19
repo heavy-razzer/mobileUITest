@@ -9,6 +9,9 @@ import utils.OsUtils;
 import static objects.MSG.DRV_CLOSED;
 import static utils.Log.sysLog;
 
+/*
+Functions to create local or cloud driver and terminate it
+ */
 public class DriverSetUp {
 
     public static WebDriverWait wait;

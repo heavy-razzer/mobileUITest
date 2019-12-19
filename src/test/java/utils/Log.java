@@ -3,6 +3,9 @@ package utils;
 import objects.Colours;
 import org.junit.Assert;
 
+/*
+Functions to print messages in log
+ */
 public class Log {
 
     public static void log(Object text, Object... args) {
