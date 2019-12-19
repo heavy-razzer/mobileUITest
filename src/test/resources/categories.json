@@ -1,0 +1,21 @@
+[
+  {
+    "name": "No data",
+    "matchedStatuses": [
+      "broken"
+    ],
+    "traceRegex": ".*NullPointerException.*"
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": [
+      "failed"
+    ]
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": [
+      "broken"
+    ]
+  }
+]
