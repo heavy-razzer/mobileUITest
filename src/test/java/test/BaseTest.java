@@ -34,17 +34,16 @@ public class BaseTest {
     @Rule
     public TestWatchers basicRules = new TestWatchers();
 
-    // Rule to relauch test if it was failed by defined reasons
+    // Rule to relaunch test if it was failed by defined reasons
     @Rule
     public RetryRule retryRule = new RetryRule(WebDriverException.class, AssertionError.class);
 
-    public LoginPage loginPage;
+    protected LoginPage loginPage;
 
     public BaseTest() {
 
         loginPage = new LoginPage();
     }
-
 
     // Actions before test class
     @BeforeClass
