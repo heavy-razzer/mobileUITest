@@ -1,4 +1,4 @@
-package Screens;
+package screens;
 
 import io.qameta.allure.Step;
 import objects.Colours;
