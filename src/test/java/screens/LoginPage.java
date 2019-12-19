@@ -1,4 +1,4 @@
-package Screens;
+package screens;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -18,9 +18,12 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "etPhoneNumber")
     private WebElement phoneEditField;
 
+    @AndroidFindBy(id = "btnGetCode")
+    private WebElement getCodeButton;
+
     @Step("Wait for Login screen opened")
     public LoginPage waitForOpening() {
-        waitFor(phoneEditField, "Login screen", TAG);
+        waitFor(phoneEditField, "Phone edit field", TAG);
         return this;
     }
 
@@ -30,5 +33,10 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Tap 'Get Code' button")
+    public LoginPage tapGetCodeButton() {
+        click(getCodeButton, "Get code button", TAG);
+        return this;
+    }
 
 }
