@@ -6,7 +6,6 @@ import utils.Log;
 import static objects.devices.DeviceNames.iphone8plus;
 import static objects.devices.DeviceNames.pixel3xl;
 import static objects.devices.DeviceVersions.*;
-import static utils.Log.sysLog;
 
 @Getter
 public class Device {
@@ -25,27 +24,19 @@ public class Device {
         return !this.deviceName.equals(empty);
     }
 
-    public static Device setDefaultValuesForDevice(String deviceName) {
-        Device device = new Device();
-        if (deviceName.equals("android")) {
-            device.OSVersion = android90;
-            device.deviceName = pixel3xl;
-            sysLog(MSG.DEVICE_IS_SET, device.getDeviceName(), device.getOSVersion());
+    public void setDefaultValuesForDevice(String deviceName) {
+        if (deviceName.toLowerCase().equals("android")) {
+            this.setDevice(android90, pixel3xl);
         }
-        if (deviceName.equals("ios")) {
-            device.OSVersion = ios12;
-            device.deviceName = iphone8plus;
-            sysLog(MSG.DEVICE_IS_SET, device.getDeviceName(), device.getOSVersion());
+        if (deviceName.toLowerCase().equals("ios")) {
+            this.setDevice(ios12, iphone8plus);
         }
-        return device;
     }
 
-    public static Device setDevice(String OS, String model, String browser) {
-        Device device = new Device();
-        device.OSVersion = OS;
-        device.deviceName = model;
-        Log.sysLog(MSG.DEVICE_IS_SET, device.getOSname(), device.getDeviceName());
-        return device;
+    private void setDevice(String OS, String model) {
+        this.OSVersion = OS;
+        this.deviceName = model;
+        Log.sysLog(MSG.DEVICE_IS_SET, this.getOSname(), this.getDeviceName());
     }
 
     public String getOSname() {
