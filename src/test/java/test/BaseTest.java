@@ -1,5 +1,6 @@
 package test;
 
+import Screens.LoginPage;
 import drivers.DriverSetUp;
 import helpers.RetryRule;
 import helpers.TestWatchers;
@@ -36,6 +37,14 @@ public class BaseTest {
     // Rule to relauch test if it was failed by defined reasons
     @Rule
     public RetryRule retryRule = new RetryRule(WebDriverException.class, AssertionError.class);
+
+    public LoginPage loginPage;
+
+    public BaseTest() {
+
+        loginPage = new LoginPage();
+    }
+
 
     // Actions before test class
     @BeforeClass
