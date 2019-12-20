@@ -44,5 +44,4 @@ public class ConfirmDialog extends BasePage {
         click(noButton, "No button", TAG);
         return this;
     }
-
 }

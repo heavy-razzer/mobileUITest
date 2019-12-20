@@ -42,5 +42,4 @@ public class EnableLocationPage extends BasePage {
         click(dialogYesButton, "Location dialog Yes button", TAG);
         return this;
     }
-
 }
