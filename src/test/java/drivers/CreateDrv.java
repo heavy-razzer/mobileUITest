@@ -3,7 +3,6 @@ package drivers;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import objects.Device;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import utils.EnvironmentProperties;
 import utils.OsUtils;
@@ -73,11 +72,8 @@ class CreateDrv {
 
         AndroidDriver cloudDriver = null;
 
-        // Set driver capabilites
+        // Set driver capabilities
         DesiredCapabilities caps = new DesiredCapabilities();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
-        caps.setCapability(ChromeOptions.CAPABILITY, options);
         Device device = OsUtils.getDevice();
         caps.setCapability("os_version", device.getOSVersion());
         caps.setCapability("device", device.getDeviceName());
