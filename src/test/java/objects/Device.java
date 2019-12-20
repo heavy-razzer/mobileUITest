@@ -13,19 +13,8 @@ Device management: create device, set parameters...
 @Getter
 public class Device {
 
-    private String empty = "empty";
-
     private String OSVersion;
     private String deviceName;
-
-    public Device() {
-        OSVersion = empty;
-        deviceName = empty;
-    }
-
-    public boolean notEmpty() {
-        return !this.deviceName.equals(empty);
-    }
 
     public void setDefaultValuesForDevice(String deviceName) {
         if (deviceName.toLowerCase().equals("android")) {
