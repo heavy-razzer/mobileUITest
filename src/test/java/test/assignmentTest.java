@@ -1,11 +1,19 @@
+package test;
+
 import drivers.DriverSleep;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import objects.MenuItems;
 import org.junit.Test;
-import test.BaseTest;
 
-public class myTest extends BaseTest {
+@Epic("UI Assignment for SDET")
+public class assignmentTest extends BaseTest {
 
     @Test
+    @Description("Complete login and registration flow, open Rules and accept it, open Profile and sign out.")
+    @Severity(SeverityLevel.BLOCKER)
     public void sampleTest() {
 
         DriverSleep.sleep(9000);
