@@ -3,6 +3,7 @@ package screens;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import test.BaseTest;
@@ -26,9 +27,20 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "rideButton")
     private WebElement scanToRideButton;
 
+    @AndroidFindBy(id = "rvZoneOnboarding")
+    private WebElement zoneOnboardingPanel;
+
     @Step("Wait for Login screen opened")
     public HomePage waitForOpening() {
         waitFor(scanToRideButton, "Scan to ride button", TAG);
+        return this;
+    }
+
+    @Step("Close zone onboarding")
+    public HomePage skipZoneOnboarding() {
+        waitFor(zoneOnboardingPanel, "Zone onboarding panel", TAG);
+        zoneOnboardingPanel.findElement(By.className("android.widget.Button")).click();
+        zoneOnboardingPanel.findElement(By.className("android.widget.Button")).click();
         return this;
     }
 
