@@ -44,33 +44,32 @@ The biggest difficulty in this test is verification flow.
 
 My ideas about solving this problems.
 
-1. 
-There are services, that provide you several real phone numbers, and you can get sms on it (like https://smsreceivefree.com/)
+1. There are services, that provide you several real phone numbers, and you can get sms on it (like https://smsreceivefree.com/)
 But to get sms you should use their web-sites, and it is not reliable (sometimes messages are not displayed on site).
 Although I used it during development, this is not good idea to use it on regular basis: there are few available numbers,
 so while running test with Auth flow regularly, numbers will be blocked. And, of course, UI steps are not reliable.
-2.
-When code is sent to device, it should be displayed in Android notification panel. So I get it from notification panel.
+
+2. When code is sent to device, it should be displayed in Android notification panel. So I get it from notification panel.
 This is not very good solution: there can be different launchers, and notification locators can be changed. I have tested
 on Samsung phone with Google Messages app.
+
 3. Obviously, test should set country code from UI. Because I can not change it by setting different location with Appium,
 the only way is to interact with UI elements. It is not very difficult to scroll through countries and select needed one.
 I need more time ot develop this functions. But there is no time left...
 
-Solution for 1-3. 
+Solution for 1-3.
+
 Ideally these test steps should be done by APi or back-end calls. For example, I can send some call to back-end with phone
 number, and get answer with expected verification code. This way is stable (because we dont use any third-party web-sites
 or services) and it can test any combination of country code/phone.
 
-4-5.
-During development I used service for virtual email address (https://temp-mail.org/en/). On one side, it is possible
+4-5. During development I used service for virtual email address (https://temp-mail.org/en/). On one side, it is possible
 to create email there before test through web-interface. But, on other side, it is not reliable, not stable and will 
 require more time to development.
 Ideally, there should be option to delete user from database with single API call. In this case, before test, I can
 execute command, that will remove real email from system database, and then use this email egain.
 
-6-7
-Can be fixed by aforementioned solutions.  
+6-7 Can be fixed by aforementioned solutions.  
 
 So, in breaf, to make this test perfect, I have to add:
 - API call to get verification code for used phone (then using real phone will not be mandatory at all)
