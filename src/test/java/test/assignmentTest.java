@@ -18,7 +18,6 @@ public class assignmentTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     public void sampleTest() {
 
-        String countryCode = OsUtils.getCountryCode();
         String phoneNumber = OsUtils.getPhoneNumber();
         String emailId = OsUtils.getEmail();
 
