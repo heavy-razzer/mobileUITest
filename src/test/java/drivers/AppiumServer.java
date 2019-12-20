@@ -21,6 +21,8 @@ public class AppiumServer {
             sysLog(MSG.STARTING_APPIUM);
             ShellExecutor shellExecutor = new ShellExecutor();
             String[] cmd;
+
+            // Kill process on server port
             if (isMAC() || isLinux()) {
                 cmd = new String[]{"sh", "-c", "lsof -P | grep ':" + serverPort + "' | awk '{print $2}' | xargs kill -9"};
                 shellExecutor.executeShell(cmd);
@@ -44,9 +46,11 @@ public class AppiumServer {
             list.add("--bootstrap-port");
             list.add(String.valueOf(serverPort + 100));
             list.add("--command-timeout");
-            list.add("10");
+            list.add("90");
             list.add("--session-override");
             list.add("--log-timestamp");
+            list.add("--allow-insecure");
+            list.add("chromedriver_autodownload");
 
             // create the process builder
             try {
