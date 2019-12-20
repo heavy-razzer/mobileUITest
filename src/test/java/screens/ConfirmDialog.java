@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import test.BaseTest;
 
+/*
+Confirm dialog with two buttons
+ */
 public class ConfirmDialog extends BasePage {
 
     private String TAG = "ConfirmPhoneDialog";
