@@ -43,7 +43,7 @@ class CreateDrv {
             caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, device.getOSVersion() + ".1");
         }
 
-        caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "10");
+        caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "20");
 
         // Try to create driver
         try {
