@@ -1,6 +1,5 @@
 package utils;
 
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import objects.Device;
 import objects.Environment;
@@ -90,28 +89,27 @@ public class OsUtils {
         return dateFormat.format(newDate);
     }
 
-    public static String getSMSCode() {
+    public static String getSMSCodeFromNotification() {
 
         String result;
 
         // Open notification panel
-        AndroidDriver androidDriver = ((AndroidDriver) driver);
-        androidDriver.openNotifications();
-
-        // Set wait period longer
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        driver.openNotifications();
 
         // Locator for message text
         By by = By.id("android:id/message_text");
+
         try {
             // Wait until message tile appears on Notification panel
+            WebDriverWait wait = new WebDriverWait(driver, 15);
             wait.until(webDriver -> driver.findElements(by).size() > 0);
             result = driver.findElement(by).getText().split(":")[1].trim();
         } catch (TimeoutException | NoSuchElementException ex) {
             result = null;
         }
-        // Close Notification panel
-        androidDriver.pressKeyCode(AndroidKeyCode.BACK);
+
+        // Close Notification panel with Back key
+        driver.pressKeyCode(AndroidKeyCode.BACK);
         return result;
     }
 }
