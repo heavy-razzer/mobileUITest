@@ -1,4 +1,5 @@
 import drivers.DriverSleep;
+import objects.MenuItems;
 import org.junit.Test;
 import test.BaseTest;
 
@@ -11,7 +12,7 @@ public class myTest extends BaseTest {
 
         loginPage
                 .waitForOpening()
-                .typePhoneNumber("6467879865")
+                .typePhoneNumber("8602079805")
                 .tapGetCodeButton();
 
         confirmDialog
@@ -25,7 +26,7 @@ public class myTest extends BaseTest {
 
         emailPage
                 .waitForOpening()
-                .typeEmailAddress("voitest3@email5.net")
+                .typeEmailAddress("voitest4@email5.net")
                 .tapLetsGoButton();
 
         confirmDialog
@@ -45,28 +46,32 @@ public class myTest extends BaseTest {
         homePage
                 .skipZoneOnboarding()
                 .waitForOpening()
-                .openMenu();
+                .openMenu()
+                .selectMenuItem(MenuItems.RULES);
 
+        confirmOnboardingPage
+                .waitForOpening()
+                .tapConfirmButton();
+
+        homePage
+                .waitForOpening()
+                .openMenu()
+                .selectMenuItem(MenuItems.PROFILE);
+
+        profilePage
+                .waitForOpening()
+                .tapSignOutButton();
+
+        confirmDialog
+                .waitForOpening()
+                .tapYesButton();
+
+        loginPage
+                .waitForOpening();
 
         //String code = OsUtils.getSMSCode();
         //System.out.println("Code is :" + code);
 
         //homePage.waitForOpening().openMenu();
-
-        /*
-        emailPage
-                .waitForOpening()
-                .typeEmailAddress("voitest@email5.net")
-                .tapLetsGoButton();
-
-        confirmOnboardingPage
-                .waitForOpening()
-                .waitForConfirmButtonBecomeEnabled()
-                .tapConfirmButton();
-
-         */
-
-        DriverSleep.sleep(5000);
-
     }
 }
