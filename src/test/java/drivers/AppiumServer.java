@@ -17,7 +17,7 @@ public class AppiumServer {
     public static Process startAppiumServer(int serverPort) {
 
         Process appium_Process = null;
-        if (System.getProperty("noAppium") == null) {
+        if (System.getProperty("appium") != null) {
             sysLog(MSG.STARTING_APPIUM);
             ShellExecutor shellExecutor = new ShellExecutor();
             String[] cmd;
@@ -67,7 +67,7 @@ public class AppiumServer {
     }
 
     public static void closeAppiumServer(Process appiumProcess) {
-        if (System.getProperty("noAppium") == null) {
+        if (System.getProperty("appium") != null) {
             sysLog(MSG.CLOSING_APPIUM);
             if (appiumProcess != null) {
                 try {
