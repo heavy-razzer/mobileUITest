@@ -14,7 +14,7 @@
 
 Was developed in IntelliJ Idea with Appium Desktop
 
-How to run test:
+**How to run test:**
 
 `mvn -Dphone="12345678" -Demail="my@email.com" test`
 
