@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import test.BaseTest;
 
+/*
+Page for confirming use terms
+ */
 public class ConfirmOnboardingPage extends BasePage {
 
     private String TAG = "ConfirmOnboardingPage";
@@ -24,7 +27,7 @@ public class ConfirmOnboardingPage extends BasePage {
         return this;
     }
 
-    @Step("Wait to 'Confirm' buttom becomes enabled")
+    @Step("Wait to 'Confirm' button becomes enabled")
     public ConfirmOnboardingPage waitForConfirmButtonBecomeEnabled() {
         waitForElementToBeEnabled(confirmButton, 10, "Confirm button", TAG);
         return this;
