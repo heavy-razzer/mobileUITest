@@ -43,11 +43,6 @@ public enum MSG {
     // Rules
     RULE_RESTART_TEST("Restarting test, attempt: %s"),
 
-    // Config loader
-    CONFIG_USED("Using config file"),
-    ERR_CANT_PARSE_CONFIG("Can't parse config file"),
-    ERR_CONFIG_NOT_EXISTS("Config file does not exists"),
-
     // BrowserStack server
     LOCAL_SRV_STARTING("Starting BrowserStack LocalTesting server... %s"),
     LOCAL_SRV_STARTED("LocalTesting server started"),
@@ -65,30 +60,12 @@ public enum MSG {
     ERR_CANT_ACCEPT_ALERT("Cant accept alert: No alert present!"),
     ERR_FAIL_TO_SCROLL("Fail to scroll menu to selected item!"),
     ERR_ELEMENT_NOT_FOUND("Element not found: %s"),
+    ERR_MENU_ITEM_NOT_FOUND("Menu item %s not found"),
 
     // Element waits
     ERR_PAGE_NOT_OPENED("Home page was not loaded"),
     ERR_WAIT_FOR_ELEMENT_FAILED("Wait for element failed: %s"),
-    ERR_WAIT_FOR_NOT_VISIBILe_FAILED("Wait for element not visible failed: %s"),
-
-    // Skip tests
-    SKIP_TEST("Test skipped. %s"),
-    BECAUSE_SAFARI_RESTRICTIONS("Cross-origin restrictions, affecting form with card details, can not be turned off in Safari."),
-    BECAUSE_BO_NOT_OPTIMISED_FOR_MOBILE("Back Office page is not optimised for mobile browsers."),
-
-    // User auth state
-    USER_IS_SIGNED("User is signed"),
-    USER_NOT_SIGNED("User is not signed"),
-
-    // PostgreSQL connector
-    ERR_CANT_CONNECT_TO_DB("Cant connect to 'remarketing' database"),
-    CONNECTED_TO_DB("Connected to 'remarketing' database"),
-    ERR_SQL_EXCEPTION("SQL State: %s\n%s"),
-
-    // BackOffice connector
-    DELETE_USER("Delete user from BackOffice database"),
-    ERR_HTTP_REQUEST_NOT_OK("HTTP request was not successful"),
-    ERR_HTTP_REQUEST_FAILED("HTTP request failed");
+    ERR_WAIT_FOR_NOT_VISIBILe_FAILED("Wait for element not visible failed: %s");
 
     private String messageText;
 
