@@ -9,10 +9,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.openqa.selenium.WebDriverException;
-import screens.ConfirmDialog;
-import screens.EmailPage;
-import screens.LoginPage;
-import screens.VerificationPage;
+import screens.*;
 
 import static drivers.AppiumServer.closeAppiumServer;
 import static drivers.AppiumServer.startAppiumServer;
@@ -45,6 +42,7 @@ public class BaseTest {
     protected ConfirmDialog confirmDialog;
     protected VerificationPage verificationPage;
     protected EmailPage emailPage;
+    private ConfirmOnboardingPage confirmOnboardingPage;
 
     public BaseTest() {
 
@@ -52,6 +50,7 @@ public class BaseTest {
         confirmDialog = new ConfirmDialog();
         verificationPage = new VerificationPage();
         emailPage = new EmailPage();
+        confirmOnboardingPage = new ConfirmOnboardingPage();
     }
 
     // Actions before test class
