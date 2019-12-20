@@ -3,10 +3,12 @@ package screens;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
+import objects.MSG;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import test.BaseTest;
+import utils.Log;
 
 import java.util.List;
 
@@ -51,8 +53,18 @@ public class HomePage extends BasePage {
     }
 
     @Step("Select ")
-    public HomePage selectMenuItem() {
-
+    public HomePage selectMenuItem(String menuItemTitle) {
+        boolean result = false;
+        for (WebElement menuItem : menuItems) {
+            if (menuItem.getText().equals(menuItemTitle)) {
+                click(menuItem, menuItemTitle, TAG);
+                result = true;
+                break;
+            }
+        }
+        if (!result) {
+            Log.errLog(MSG.ERR_MENU_ITEM_NOT_FOUND, menuItemTitle);
+        }
         return this;
     }
 }
