@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidKeyCode;
 import objects.Device;
 import objects.Environment;
 import objects.MSG;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -111,5 +112,23 @@ public class OsUtils {
         // Close Notification panel with Back key
         driver.pressKeyCode(AndroidKeyCode.BACK);
         return result;
+    }
+
+    public static String getCountryCode() {
+        String code = System.getProperty("code");
+        Assert.assertNotNull(MSG.ERR_NO_CODE.getMessageText(), code);
+        return code;
+    }
+
+    public static String getPhoneNumber() {
+        String phone = System.getProperty("phone");
+        Assert.assertNotNull(MSG.ERR_NO_PHONE.getMessageText(), phone);
+        return phone;
+    }
+
+    public static String getEmail() {
+        String email = System.getProperty("email");
+        Assert.assertNotNull(MSG.ERR_NO_EMAIL.getMessageText(), email);
+        return email;
     }
 }
