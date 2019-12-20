@@ -12,6 +12,9 @@ import utils.Log;
 
 import java.util.List;
 
+/*
+Home page with map
+ */
 public class HomePage extends BasePage {
 
     private String TAG = "HomePage";
@@ -32,7 +35,7 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "rvZoneOnboarding")
     private WebElement zoneOnboardingPanel;
 
-    @Step("Wait for Login screen opened")
+    @Step("Wait for Home screen opened")
     public HomePage waitForOpening() {
         waitFor(scanToRideButton, "Scan to ride button", TAG);
         return this;
@@ -41,8 +44,8 @@ public class HomePage extends BasePage {
     @Step("Close zone onboarding")
     public HomePage skipZoneOnboarding() {
         waitFor(zoneOnboardingPanel, "Zone onboarding panel", TAG);
-        zoneOnboardingPanel.findElement(By.className("android.widget.Button")).click();
-        zoneOnboardingPanel.findElement(By.className("android.widget.Button")).click();
+        click(zoneOnboardingPanel.findElement(By.className("android.widget.Button")), "Next button", TAG);
+        click(zoneOnboardingPanel.findElement(By.className("android.widget.Button")), "Ok button", TAG);
         return this;
     }
 
@@ -52,7 +55,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    @Step("Select ")
+    @Step("Select menu item {menuItemTitle}")
     public HomePage selectMenuItem(String menuItemTitle) {
         boolean result = false;
         for (WebElement menuItem : menuItems) {
