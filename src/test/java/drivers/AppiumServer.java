@@ -30,9 +30,8 @@ public class AppiumServer {
                 cmd = new String[]{"cmd.exe", "/c", "for /f \"tokens=5\" %p in ('netstat -aon ^| findstr " + serverPort + "') do @TASKKILL /PID %p /F"};
                 shellExecutor.executeShell(cmd);
             }
-            sleep(2000);
 
-            // build appium server parameters
+            // Set Appium server parameters
             List<String> list = new ArrayList<>();
             if (isWindows()) { // windows
                 list.add("cmd.exe");
@@ -52,13 +51,13 @@ public class AppiumServer {
             list.add("--allow-insecure");
             list.add("chromedriver_autodownload");
 
-            // create the process builder
+            // Create the process builder
             try {
                 ProcessBuilder pb1 = new ProcessBuilder(list);
                 pb1.redirectErrorStream(true);
                 pb1.redirectOutput(ProcessBuilder.Redirect.INHERIT);
                 appium_Process = pb1.start();
-                sleep(10000);
+                sleep(10000); // TODO: Research how to check if server started correctly
                 sysLog(MSG.APPIUM_STARTED);
             } catch (Exception e) {
                 sysLog(MSG.ERR_APPIUM_START_FAILED);
@@ -80,7 +79,6 @@ public class AppiumServer {
                     sysLog(MSG.ERR_FAILED_TO_CLOSE_APPIUM);
                     e.printStackTrace();
                 }
-                sleep(1000);
                 if (appiumProcess.isAlive()) {
                     appiumProcess.destroyForcibly();
                     sysLog(MSG.APPIUM_CLOSED_FORCIBLY);
