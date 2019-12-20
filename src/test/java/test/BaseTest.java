@@ -3,7 +3,7 @@ package test;
 import drivers.DriverSetUp;
 import helpers.RetryRule;
 import helpers.TestWatchers;
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import objects.Environment;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -22,7 +22,7 @@ Basic test setup: driver and pages management
 public class BaseTest {
 
     // Set main driver
-    public static AppiumDriver driver = null;
+    public static AndroidDriver driver = null;
 
     // System process with appium server
     private static Process appium_Process;

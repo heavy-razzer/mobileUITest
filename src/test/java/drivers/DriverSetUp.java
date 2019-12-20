@@ -1,6 +1,6 @@
 package drivers;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import objects.Environment;
 import test.BaseTest;
 import utils.OsUtils;
@@ -13,10 +13,10 @@ Functions to create local or cloud driver and terminate it
  */
 public class DriverSetUp {
 
-    public static AppiumDriver initDriver() {
+    public static AndroidDriver initDriver() {
 
         String environment = OsUtils.getRunType();
-        AppiumDriver drv = null;
+        AndroidDriver drv = null;
 
         if (environment.equals(Environment.local)) {
             drv = CreateDrv.createLocalDriver();

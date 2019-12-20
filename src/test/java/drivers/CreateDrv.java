@@ -1,6 +1,6 @@
 package drivers;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import objects.Device;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,9 +22,9 @@ Functions to create Appium drivers
 class CreateDrv {
 
     // Create Appium driver on local machine
-    static AppiumDriver createLocalDriver() {
+    static AndroidDriver createLocalDriver() {
 
-        AppiumDriver localDriver = null;
+        AndroidDriver localDriver = null;
 
         //. Get device parameters
         Device device = OsUtils.getDevice();
@@ -33,16 +33,10 @@ class CreateDrv {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, device.getOSname());
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
-
-        if (device.getOSname().equals("Android")) { // for Android device
-            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION,
-                    new DecimalFormat("0.#").format(Double.parseDouble(device.getOSVersion())));
-            caps.setCapability("appPackage", "io.voiapp.voi");
-            caps.setCapability("appActivity", ".MainActivity");
-        } else { // for iOS device
-            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, device.getOSVersion() + ".1");
-        }
-
+        caps.setCapability(MobileCapabilityType.PLATFORM_VERSION,
+                new DecimalFormat("0.#").format(Double.parseDouble(device.getOSVersion())));
+        caps.setCapability("appPackage", "io.voiapp.voi");
+        caps.setCapability("appActivity", ".MainActivity");
         caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "20");
 
         // Try to create driver
@@ -51,7 +45,7 @@ class CreateDrv {
             String baseURL = "http://0.0.0.0:";
             String minorURL = "/wd/hub";
             String port = "4723";
-            localDriver = new AppiumDriver(new URL(baseURL + port + minorURL), caps);
+            localDriver = new AndroidDriver(new URL(baseURL + port + minorURL), caps);
             localDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             sysLog(LOCAL_DRV_CREATED);
         } catch (Exception e) {
@@ -62,7 +56,7 @@ class CreateDrv {
     }
 
     // Create remote driver on BrowserStack cloud paltform
-    static AppiumDriver createBSDriver() {
+    static AndroidDriver createBSDriver() {
 
         String USERNAME;
         String AUTOMATE_KEY;
@@ -77,7 +71,7 @@ class CreateDrv {
         // Set URL to BS platform
         String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@" + SERVER;
 
-        AppiumDriver cloudDriver = null;
+        AndroidDriver cloudDriver = null;
 
         // Set driver capabilites
         DesiredCapabilities caps = new DesiredCapabilities();
@@ -94,7 +88,7 @@ class CreateDrv {
         // Try to create driver connected to BS platform
         try {
             sysLog(BS_STARTING_DRV);
-            cloudDriver = new AppiumDriver(new URL(URL), caps);
+            cloudDriver = new AndroidDriver<>(new URL(URL), caps);
             cloudDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             sysLog(BS_DRV_CREATED);
         } catch (Exception e) {
