@@ -52,4 +52,9 @@ public enum MSG {
     MSG(String message) {
         this.messageText = message;
     }
+
+    @Override
+    public String toString() {
+        return messageText;
+    }
 }
