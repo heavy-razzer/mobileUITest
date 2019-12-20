@@ -8,11 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 import test.BaseTest;
 
 /*
-Confirm dialog with two buttons
+Confirm dialog with Yes/No buttons
  */
 public class ConfirmDialog extends BasePage {
 
-    private String TAG = "ConfirmPhoneDialog";
+    private String TAG = "ConfirmDialog";
 
     public ConfirmDialog() {
         PageFactory.initElements(new AppiumFieldDecorator(BaseTest.driver), this);
