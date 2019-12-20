@@ -1,16 +1,18 @@
-UI Assignment for SDET
+**UI Assignment for SDET**
 
-Author: Mikhail Miroshnichenko
-Email: hikari.no.mikem@gmail.com
+**Author**: Mikhail Miroshnichenko
+**Email**: hikari.no.mikem@gmail.com
 
 **Requirements:**
 - JDK
-= Maven
+- Maven
 - Appium
 - Allure (http://allure.qatools.ru/) (optionally, just to build report after test run)
 - Lombok plugin for IDE (optionally, to correctly display few commands)
 - Phone with active sim card, that was not used before
 - Real email address, that was not used before
+
+Was developed in IntelliJ Idea with Appium Desktop
 
 How to run test:
 
