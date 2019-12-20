@@ -21,6 +21,9 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "etPhoneNumber")
     private WebElement phoneEditField;
 
+    @AndroidFindBy(id = "tvCountryCode")
+    private WebElement countryCodeButton;
+
     @AndroidFindBy(id = "btnGetCode")
     private WebElement getCodeButton;
 
