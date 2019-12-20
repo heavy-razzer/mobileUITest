@@ -31,7 +31,7 @@ public class EmailPage extends BasePage {
     }
 
     @Step("Type email address {email}")
-    public EmailPage typeVerificationCode(String email) {
+    public EmailPage typeEmailAddress(String email) {
         type(emailAddressEditField, email, "Email address edit field", TAG);
         return this;
     }
