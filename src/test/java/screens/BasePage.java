@@ -7,7 +7,6 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import test.BaseTest;
 
@@ -91,27 +90,24 @@ class BasePage {
         }
     }
 
-    @Step("Select '{text}' item in dropdown '{description}'")
-    static void selectItemInDropDown(WebElement element, String text, String description, String tag) {
+    @Step("Wait for element '{description}' to be enabled in {timeOut} seconds")
+    static void waitForElementToBeEnabled(WebElement element, int timeOut, String description, String tag) {
         log(Colours.BLUE.getColour() + timeStamp(SHORT_TIME) + Colours.DEFAULT.getColour()
                 + " - "
                 + tag
-                + ": Select '"
-                + Colours.PURPLE.getColour() + text + Colours.DEFAULT.getColour()
-                + "' in '"
-                + Colours.CYAN.getColour() + description + Colours.DEFAULT.getColour()
-                + "'");
+                + ": Wait for '"
+                + Colours.CYAN.getColour()
+                + description
+                + Colours.DEFAULT.getColour()
+                + "' to be enabled");
+        WebDriverWait wait = new WebDriverWait(BaseTest.driver, timeOut);
         try {
-            Select select = new Select(element);
-            select.selectByVisibleText(text);
-        } catch (WebDriverException e) {
-            System.out.println(e.toString());
+            wait.until(ExpectedConditions.attributeToBe(element, "enabled", "true"));
+        } catch (TimeoutException e) {
             errLog(timeStamp(SHORT_TIME)
                     + " - "
                     + tag
-                    + ": Failed to select '"
-                    + text
-                    + "' in '"
+                    + ": Failed to wait for element to be enabled '"
                     + description
                     + "'");
         }
