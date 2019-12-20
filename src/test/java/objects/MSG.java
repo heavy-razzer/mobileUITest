@@ -45,7 +45,8 @@ public enum MSG {
     // Element waits
     ERR_PAGE_NOT_OPENED("Home page was not loaded"),
     ERR_WAIT_FOR_ELEMENT_FAILED("Wait for element failed: %s"),
-    ERR_WAIT_FOR_NOT_VISIBILe_FAILED("Wait for element not visible failed: %s");
+    ERR_WAIT_FOR_NOT_VISIBILe_FAILED("Wait for element not visible failed: %s"),
+    ERR_NO_SMS_CODE("Verification code NOT received");
 
     private String messageText;
 
