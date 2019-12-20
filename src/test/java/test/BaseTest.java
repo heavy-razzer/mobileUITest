@@ -44,6 +44,7 @@ public class BaseTest {
     protected EmailPage emailPage;
     protected ConfirmOnboardingPage confirmOnboardingPage;
     protected HomePage homePage;
+    protected EnableLocationPage enableLocationPage;
 
     public BaseTest() {
 
@@ -53,6 +54,7 @@ public class BaseTest {
         emailPage = new EmailPage();
         confirmOnboardingPage = new ConfirmOnboardingPage();
         homePage = new HomePage();
+        enableLocationPage = new EnableLocationPage();
     }
 
     // Actions before test class
