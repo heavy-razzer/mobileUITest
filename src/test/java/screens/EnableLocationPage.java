@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import test.BaseTest;
 
+/*
+Page for enabling location services
+ */
 public class EnableLocationPage extends BasePage {
 
     private String TAG = "EnableLocationPage";
@@ -21,7 +24,7 @@ public class EnableLocationPage extends BasePage {
     @AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
     private WebElement dialogYesButton;
 
-    @Step("Wait for Login screen opened")
+    @Step("Wait for Enable Location screen opened")
     public EnableLocationPage waitForOpening() {
         waitFor(enableLocationServicesButton, "Enable location services button", TAG);
         return this;
