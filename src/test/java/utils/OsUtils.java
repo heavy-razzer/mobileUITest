@@ -93,6 +93,7 @@ public class OsUtils {
     public static String getSMSCode() {
 
         String result;
+
         // Open notification panel
         AndroidDriver androidDriver = ((AndroidDriver) driver);
         androidDriver.openNotifications();
