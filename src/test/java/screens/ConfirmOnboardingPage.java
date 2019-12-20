@@ -21,7 +21,7 @@ public class ConfirmOnboardingPage extends BasePage {
     @AndroidFindBy(id = "btnConfirmOnboarding")
     private WebElement confirmButton;
 
-    @Step("Wait for Login screen opened")
+    @Step("Wait for Confirm onboarding screen opened")
     public ConfirmOnboardingPage waitForOpening() {
         waitFor(confirmButton, "Confirm button", TAG);
         return this;
@@ -33,7 +33,7 @@ public class ConfirmOnboardingPage extends BasePage {
         return this;
     }
 
-    @Step("Tap 'Get Code' button")
+    @Step("Tap 'Confirm' button")
     public ConfirmOnboardingPage tapConfirmButton() {
         click(confirmButton, "Confirm button", TAG);
         return this;
