@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import test.BaseTest;
 
+/*
+Start page for entering phone number
+ */
 public class LoginPage extends BasePage {
 
     private String TAG = "LoginPage";
@@ -38,5 +41,4 @@ public class LoginPage extends BasePage {
         click(getCodeButton, "Get code button", TAG);
         return this;
     }
-
 }
