@@ -1,12 +1,14 @@
 package test;
 
-import drivers.DriverSleep;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import objects.MSG;
 import objects.MenuItems;
+import org.junit.Assert;
 import org.junit.Test;
+import utils.OsUtils;
 
 @Epic("UI Assignment for SDET")
 public class assignmentTest extends BaseTest {
@@ -16,25 +18,25 @@ public class assignmentTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     public void sampleTest() {
 
-        DriverSleep.sleep(9000);
-
         loginPage
                 .waitForOpening()
-                .typePhoneNumber("8602079805")
+                .typePhoneNumber("56146994")
                 .tapGetCodeButton();
 
         confirmDialog
                 .waitForOpening()
                 .tapYesButton();
 
-        verificationPage
-                .waitForOpening();
+        String verificationCode = OsUtils.getSMSCodeFromNotification();
+        Assert.assertNotNull(MSG.ERR_NO_SMS_CODE.getMessageText(), verificationCode);
 
-        DriverSleep.sleep(15000);
+        verificationPage
+                .waitForOpening()
+                .typeVerificationCode(verificationCode);
 
         emailPage
                 .waitForOpening()
-                .typeEmailAddress("voitest4@email5.net")
+                .typeEmailAddress("voitest5@email5.net")
                 .tapLetsGoButton();
 
         confirmDialog
@@ -76,10 +78,5 @@ public class assignmentTest extends BaseTest {
 
         loginPage
                 .waitForOpening();
-
-        //String code = OsUtils.getSMSCode();
-        //System.out.println("Code is :" + code);
-
-        //homePage.waitForOpening().openMenu();
     }
 }
