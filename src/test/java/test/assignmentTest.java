@@ -18,9 +18,13 @@ public class assignmentTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     public void sampleTest() {
 
+        String countryCode = OsUtils.getCountryCode();
+        String phoneNumber = OsUtils.getPhoneNumber();
+        String emailId = OsUtils.getEmail();
+
         loginPage
                 .waitForOpening()
-                .typePhoneNumber("56146994")
+                .typePhoneNumber(phoneNumber)
                 .tapGetCodeButton();
 
         confirmDialog
@@ -36,7 +40,7 @@ public class assignmentTest extends BaseTest {
 
         emailPage
                 .waitForOpening()
-                .typeEmailAddress("voitest5@email5.net")
+                .typeEmailAddress(emailId)
                 .tapLetsGoButton();
 
         confirmDialog
