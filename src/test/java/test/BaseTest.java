@@ -42,7 +42,8 @@ public class BaseTest {
     protected ConfirmDialog confirmDialog;
     protected VerificationPage verificationPage;
     protected EmailPage emailPage;
-    private ConfirmOnboardingPage confirmOnboardingPage;
+    protected ConfirmOnboardingPage confirmOnboardingPage;
+    protected HomePage homePage;
 
     public BaseTest() {
 
@@ -51,6 +52,7 @@ public class BaseTest {
         verificationPage = new VerificationPage();
         emailPage = new EmailPage();
         confirmOnboardingPage = new ConfirmOnboardingPage();
+        homePage = new HomePage();
     }
 
     // Actions before test class
