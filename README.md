@@ -14,6 +14,23 @@
 
 Was developed in IntelliJ Idea with Appium Desktop
 
+**Test scenario**
+1. Install release app from GPlay
+2. Launch
+3. Enter phone number (real, not used before)
+4. Get verification code from sms and type in into application
+5. Enter email (existed one, not used before)
+6. Confirm using geo-location services
+7. Confirm usage terms
+8. Skip onboarding popup
+9. Open menu
+10. Open Rules section
+11. Confirm terms
+12. Return to home screen
+13. Open menu
+14. Select Profile
+15. Log out
+
 **How to run test:**
 
 `mvn -Dphone="12345678" -Demail="my@email.com" test`
